@@ -27,6 +27,9 @@ Visita la app:
 
 `localhost:3000/`  
 
+User: eve.holt@reqres.in 
+Contraseña: cualquiera que utilices, servirá
+
 ## Conclusiones: 
 
 La elaboración de este proyecto tomó 5 dias. Los objetivos del proyecto incluían el uso de tecnologías aprendidas hasta este momento y familiarizarme con la documentación de las nuevas funciones.

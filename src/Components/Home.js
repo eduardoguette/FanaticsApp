@@ -66,6 +66,7 @@ function Home({ users }) {
     setLoading(true);
     users.then((data) => {
       var LS = localStorage;
+      // Consultamos el localStorage ya que aqui se almacena el token cuando iniciamos sesion
       if (localStorage.getItem("login")) {
         setTimeout(() => {
           if (localStorage.length > 1) {
