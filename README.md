@@ -1,47 +1,31 @@
+## Fanatics App
+Es una aplicación que nos muestra una lista de usuarios, donde podemos editar información de los mismose y eliminar un usuaria utilizando el metodo DELETE. En esta oportunidad realizamos esta app utilizando React, Redux, JavaScript, Styled Components y Sass.
 
-
-#### Fanatics App:
-
-TweetWorld 
-
-An application used to filter data form Twitter based on user preference, built with React, Redux, JavaScript, and CSS.
-
-## Project Status
-(only necessary if incomplete)
-
-#### Example:
-
-This project is currently in development. Users can filter tweets by username and keyword and see visual data representation. Functionality to sort by additional parameters is in progress.
-
-## Project Screen Shot(s)
-
-#### Example:   
+### Project ScreenShots
 
 ![photo](https://github.com/eduardoguette/FanaticsApp/blob/master/Screenshot_1.png?raw=true)
 ![photo](https://github.com/eduardoguette/FanaticsApp/blob/master/Screenshot_2.png?raw=true)
 ![photo](https://github.com/eduardoguette/FanaticsApp/blob/master/Screenshot_3.png?raw=true)
 
-## Installation and Setup Instructions
+### Installation and Setup Instructions
 
-#### Example:  
+Clona este repositorio. Necesitaras `node` y `npm` instalados en tu ordenador.  
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
-
-Installation:
+Instalación:
 
 `npm install`  
 
-To Run Test Suite:  
+Ejecutar un test:  
 
-`npm test`  
+`npm test run`  
 
-To Start Server:
+Inicia el servidor:
 
 `npm start`  
 
-To Visit App:
+Visita la app:
 
-`localhost:3000/ideas`  
+`localhost:3000/`  
 
 ## Reflection
 
@@ -54,10 +38,11 @@ To Visit App:
 
 #### Example:  
 
-This was a 3 week long project built during my third module at Turing School of Software and Design. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.  
+La elaboración de este proyecto tomó 5 dias. Los objetivos del proyecto incluían el uso de tecnologías aprendidas hasta este momento y familiarizarme con la documentación de las nuevas funciones.
 
-Originally I wanted to build an application that allowed users to pull data from the Twitter API based on what they were interested in, such as 'most tagged users'. I started this process by using the `create-react-app` boilerplate, then adding `react-router-4.0` and `redux`.  
+Comencé este proyecto usando `create-react-app`, luego agregando ` react-router-4.0`, `styled component` y por último `redux`.
+Originalmente para construir esta app no me fue necesario utilizar Redux, puesto que no era una tecnología que manejaba. Sin embargo buscando información y leyendo la documentación de esta poderosa herramienta, me di cuenta que era mucho mas sencillo, ya que podia manejar el estado de toda mi aplicación. 
 
-One of the main challenges I ran into was Authentication. This lead me to spend a few days on a research spike into OAuth, Auth0, and two-factor authentication using Firebase or other third parties. Due to project time constraints, I had to table authentication and focus more on data visualization from parts of the API that weren't restricted to authenticated users.
+Sin duda uno de los principales desafíos fue realizar la autenticación de la app y utilizar Redux.
 
-At the end of the day, the technologies implemented in this project are React, React-Router 4.0, Redux, LoDash, D3, and a significant amount of VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration I plan on handrolling a `webpack.config.js` file to more fully understand the build process.
+Por ultimo, las tecnologías implementadas en este proyecto son React, React-Router, Redux, Styled Components y Boostrap y una cantidad significativa de JavaScript, JSX y SASS. 
