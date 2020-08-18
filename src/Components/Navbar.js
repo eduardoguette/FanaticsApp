@@ -90,6 +90,7 @@ const DivProfile = styled.div`
     }
   }
 `;
+
 function Navbar() {
   const handleSignOut = () => {
     localStorage.removeItem("login");
@@ -98,7 +99,6 @@ function Navbar() {
       window.location.href = "/";
     }, 300);
   };
-
   const handleClick = () => {
     document.querySelector(".list").classList.toggle("active");
   };
