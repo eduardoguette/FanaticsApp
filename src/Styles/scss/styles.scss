@@ -1,0 +1,75 @@
+$font-size: 16px;
+$AzulBackgroud: #2c1654;
+$Red: #ff6464;
+$verde: #00be65;
+$amarillo: #fdbf50;
+$linear: linear-gradient(to bottom, #2c1654 10%, #552121 100%);
+$test: #5a5a5aa6;
+body {
+  height: 100vh;
+  width: 100%;
+  font-size: 1.2em;
+  margin: auto;
+  background-image: $linear;
+  background-repeat: no-repeat;
+  font-family: Montserrat;
+}
+.wrapper {
+  background-size: 2em;
+  background: url("../../football.png") center center;
+  width: 90%;
+  margin: auto;
+}
+.container.log {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 540px) {
+  .container-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      font-size: 0.7em;
+    }
+  }
+  .navbar {
+    padding: 0 !important;
+    padding: 1.5em 1em !important;
+    margin: 0;
+  }
+  .perfil {
+    & ~ .list.active {
+      right: 1.5em !important;
+    }
+  }
+  .jLJrbo img {
+    height: 60px !important;
+  }
+}
+
+.back {
+  max-width: 290px;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .perfil {
+    & ~ .list.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 70px !important;
+      width: 165px !important;
+      &::after {
+        bottom: 3.8em !important;
+      }
+    }
+  }
+}
