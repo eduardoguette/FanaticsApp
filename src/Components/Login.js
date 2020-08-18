@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import logo from "../logo.png";
 import styled from "styled-components";
 import FormularioLog from "./FormularioLog";
+import Log from "../Services/Log"
 
 const DivLogo = styled.div`
   img {
@@ -23,7 +24,7 @@ function Login() {
     localStorage.setItem("email", email);
     e.preventDefault();
     //fetch
-    entrar(email, pass).then((data) => {
+    Log(email, pass).then((data) => {
       if (data.token) {
         const token = data.token;
         localStorage.setItem("login", token);
@@ -57,22 +58,3 @@ function Login() {
 
 export default Login;
 
-async function entrar(email, pass) {
-  const user = {
-    email: email,
-    password: pass,
-  };
-  const headers = new Headers({
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  });
-  const response = await fetch("https://reqres.in/api/login", {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify(user),
-  })
-    .then((res) => res.json())
-    .then((json) => json)
-    .catch((err) => console.error("Error:", err));
-  return response;
-}

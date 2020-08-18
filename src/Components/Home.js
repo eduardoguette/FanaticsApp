@@ -92,6 +92,8 @@ function Home({ users }) {
               } else {
                 setData([]);
               }
+            }else{
+              setData(data);
             }
           } else {
             setData(data);
