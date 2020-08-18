@@ -62,15 +62,6 @@ const DivListUser = styled.div`
 function Home({ users }) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  /* useEffect(() => {
-    users.then((data) => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setData(data);
-      }, 100);
-    });
-  }, [data, users]); */
   useEffect(() => {
     setLoading(true);
     users.then((data) => {

@@ -93,7 +93,7 @@ const DivProfile = styled.div`
 function Navbar() {
   const handleSignOut = () => {
     localStorage.removeItem("login");
-    sessionStorage.removeItem("email");
+    localStorage.removeItem("email");
     setTimeout(() => {
       window.location.href = "/";
     }, 300);
@@ -110,10 +110,10 @@ function Navbar() {
           <img className="logo-ppal" src={logo} height="70" alt="top" loading="lazy" />
         </Link>
         <div className="sesion">
-          <DivProfile>
+          <DivProfile className="container-perfil">
             <img className="perfil" onClick={handleClick} src={perfil} alt="logo" />
             <div className="list">
-              <label className="c-email">{sessionStorage.getItem("email")}</label>
+              <label className="c-email">{localStorage.getItem("email")}</label>
               <label onClick={handleSignOut}>Salir</label>
             </div>
           </DivProfile>

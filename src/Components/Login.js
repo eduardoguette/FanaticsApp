@@ -20,15 +20,13 @@ function Login() {
   const hadleLog = (e) => {
     const email = document.querySelector("#exampleInputEmail1").value;
     const pass = document.querySelector("#exampleInputPassword1").value;
-    sessionStorage.setItem("email", email);
+    localStorage.setItem("email", email);
     e.preventDefault();
     //fetch
     entrar(email, pass).then((data) => {
       if (data.token) {
         const token = data.token;
-
         localStorage.setItem("login", token);
-
         setTimeout(() => {
           window.location.href = "/home";
         }, 500);
