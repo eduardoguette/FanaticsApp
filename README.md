@@ -27,8 +27,9 @@ Visita la app:
 
 `localhost:3000/`  
 
-User: eve.holt@reqres.in 
-Contraseña: cualquiera que utilices, servirá
+#### User: eve.holt@reqres.in 
+
+#### Contraseña: cualquiera que utilices, servirá
 
 ## Conclusiones: 
 
