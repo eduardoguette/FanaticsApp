@@ -7,7 +7,7 @@ Es una aplicación que nos muestra una lista de usuarios, donde podemos editar i
 ![photo](https://github.com/eduardoguette/FanaticsApp/blob/master/Screenshot_2.png?raw=true)
 ![photo](https://github.com/eduardoguette/FanaticsApp/blob/master/Screenshot_3.png?raw=true)
 
-### Installation and Setup Instructions
+### Instrucciones de intalación y configuración
 
 Clona este repositorio. Necesitaras `node` y `npm` instalados en tu ordenador.  
 
