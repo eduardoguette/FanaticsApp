@@ -173,7 +173,7 @@ function PerfilUsuario({ select }) {
   };
   const handleDelete = (e) => {
     e.preventDefault();
-    DeleteUser(Selection).then((data) => console.log("User delete", data));
+    DeleteUser(seleccion).then((data) => console.log("User delete", data));
     document.querySelector(".info-profile").classList.add("delete");
     setTimeout(() => {
       setUserDelete(true);
