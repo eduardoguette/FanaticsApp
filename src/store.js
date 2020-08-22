@@ -1,22 +1,22 @@
-import { createStore } from "redux";
-import GetUsers from "./Services/GetUsers";
+import { createStore } from 'redux';
+import GetUsers from './Services/GetUsers';
 
 const initialState = {
   user: GetUsers(1),
-  select:[]
+  select: [],
 };
-//action es un objeto
+// action es un objeto
 const reducerUsuarios = (state = initialState, action) => {
-  if (action.type === "NEXT_PAGE") {
+  if (action.type === 'NEXT_PAGE') {
     return {
       ...state,
-      user: GetUsers(action.count)
+      user: GetUsers(action.count),
     };
-  }else if(action.type === "USER_SELECT"){
+  } else if (action.type === 'USER_SELECT') {
     return {
       ...state,
-      select: action.id
-    }
+      select: action.id,
+    };
   }
   return state;
 };

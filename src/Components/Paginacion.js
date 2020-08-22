@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { connect } from "react-redux";
-import styled from "styled-components";
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 const DivNav = styled.div`
   margin: auto;
   display: flex;
@@ -10,7 +10,7 @@ const DivNav = styled.div`
   text-align: center;
   transition: 3s ease;
   .title-no-users {
-    display: ${(props) => (props.users < 1 ? "block" : "none")};
+    display: ${(props) => (props.users < 1 ? 'block' : 'none')};
     color: white;
     text-align: center;
     margin: 1em auto;
@@ -35,12 +35,12 @@ const DivNav = styled.div`
       cursor: pointer;
     }
     .prev {
-      display: ${(props) => (props.count <= 1 ? "none" : "block")};
-      border-radius: ${(props) => (props.users < 1 ? "4px" : "auto")};
+      display: ${(props) => (props.count <= 1 ? 'none' : 'block')};
+      border-radius: ${(props) => (props.users < 1 ? '4px' : 'auto')};
     }
     .next {
-      border-radius: ${(props) => (props.count <= 1 ? "4px" : "0 10px 10px 0")};
-      display: ${(props) => (props.users < 1 ? "none" : "block")};
+      border-radius: ${(props) => (props.count <= 1 ? '4px' : '0 10px 10px 0')};
+      display: ${(props) => (props.users < 1 ? 'none' : 'block')};
     }
   }
 `;
@@ -54,9 +54,9 @@ function Paginacion({ loading, users, pagina }) {
   }, [data, users]);
   const handleClick = (e) => {
     e.preventDefault();
-    if (e.target.className === "page-link prev") {
+    if (e.target.className === 'page-link prev') {
       count--;
-    } else if (e.target.className === "page-link next") {
+    } else if (e.target.className === 'page-link next') {
       count++;
     }
     pagina(count);
@@ -90,7 +90,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   pagina(count) {
     dispatch({
-      type: "NEXT_PAGE",
+      type: 'NEXT_PAGE',
       count,
     });
   },

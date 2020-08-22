@@ -1,6 +1,6 @@
-import React from "react";
-import spinner from "../loading.gif";
-import styled from "styled-components";
+import React from 'react';
+import spinner from '../loading.gif';
+import styled from 'styled-components';
 const DivSpinner = styled.div`
   height: 100vh;
   margin: auto;

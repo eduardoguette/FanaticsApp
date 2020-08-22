@@ -1,4 +1,5 @@
-##  Fanatics App [🔗](https://fanatics-app-with-redux-git-master.eduardoguette.vercel.app/)
+## Fanatics App [🔗](https://fanatics-app-with-redux-git-master.eduardoguette.vercel.app/)
+
 Es una aplicación que nos muestra una lista de usuarios, donde podemos editar información de los mismos y eliminar un usuario utilizando el metodo DELETE. En esta oportunidad realizamos esta app utilizando React, Redux, JavaScript, Styled Components y Sass.
 
 ### Project ScreenShots
@@ -9,34 +10,34 @@ Es una aplicación que nos muestra una lista de usuarios, donde podemos editar i
 
 ### Instrucciones de intalación y configuración
 
-Clona este repositorio. Necesitaras `node` y `npm` instalados en tu ordenador.  
+Clona este repositorio. Necesitaras `node` y `npm` instalados en tu ordenador.
 
 Instalación:
 
-`npm install`  
+`npm install`
 
-Ejecutar un test:  
+Ejecutar un test:
 
-`npm test run`  
+`npm test run`
 
 Inicia el servidor:
 
-`npm start`  
+`npm start`
 
 Visita la app:
 
-`localhost:3000/`  
+`localhost:3000/`
 
-#### User: eve.holt@reqres.in 
+#### User: eve.holt@reqres.in
 
 #### Contraseña: cualquiera que utilices, servirá
 
-## Conclusiones: 
+## Conclusiones:
 
 La elaboración de este proyecto tomó 5 dias. Los objetivos del proyecto incluían el uso de tecnologías aprendidas hasta este momento y familiarizarme con la documentación de las nuevas funciones.
 
-Comencé este proyecto usando `create-react-app`, luego agregando ` react-router`, `styled component` y por último `redux`.
-Originalmente para construir esta app no me fue necesario utilizar Redux. Sin embargo, fue utilizada ya que era un requisito. 
+Comencé este proyecto usando `create-react-app`, luego agregando `react-router`, `styled component` y por último `redux`.
+Originalmente para construir esta app no me fue necesario utilizar Redux. Sin embargo, fue utilizada ya que era un requisito.
 Sin duda uno de los principales desafíos fue realizar la autenticación de la app y utilizar Redux.
 
-Por ultimo, las tecnologías implementadas en este proyecto son React, React-Router, Redux, Styled Components y Boostrap y una cantidad significativa de JavaScript, JSX y SASS. 
+Por ultimo, las tecnologías implementadas en este proyecto son React, React-Router, Redux, Styled Components y Boostrap y una cantidad significativa de JavaScript, JSX y SASS.

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 const DivNoResult = styled.div`
   color: white;
   margin: 3em auto;
@@ -7,7 +7,9 @@ const DivNoResult = styled.div`
   text-align: center;
 `;
 function NoResults() {
-  return <DivNoResult>No se encontraron resultados, intentalo mas tarde</DivNoResult>;
+  return (
+    <DivNoResult>No se encontraron resultados, intentalo mas tarde</DivNoResult>
+  );
 }
 
 export default NoResults;

@@ -1,8 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-
-import styled from "styled-components";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const DivListUser = styled.div`
   display: flex;
@@ -20,7 +19,7 @@ const DivListUser = styled.div`
       background-color: #000f25;
       border-radius: 8px;
       margin: 0 !important;
-      margin: .7em !important;
+      margin: 0.7em !important;
       .media-body {
         margin: auto;
         strong {
@@ -56,7 +55,6 @@ const DivListUser = styled.div`
   }
 `;
 function ListDeUsuarios({ usuario_select, avatar, id, first_name, last_name }) {
-
   return (
     <DivListUser>
       <div className="container-sm list-users">
@@ -64,7 +62,7 @@ function ListDeUsuarios({ usuario_select, avatar, id, first_name, last_name }) {
           <img src={avatar} className="mr-3" alt={first_name} />
           <div className="media-body">
             <strong>Name: </strong>
-            <Link to={`/user/${id}`} onClick={() => usuario_select({id})}>
+            <Link to={`/user/${id}`} onClick={() => usuario_select({ id })}>
               <br />
               {first_name} {last_name}
             </Link>
@@ -80,13 +78,13 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   pagina(count = 1) {
     dispatch({
-      type: "NEXT_PAGE",
+      type: 'NEXT_PAGE',
       count,
     });
   },
   usuario_select(id) {
     dispatch({
-      type: "USER_SELECT",
+      type: 'USER_SELECT',
       id,
     });
   },

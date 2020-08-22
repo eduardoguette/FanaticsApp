@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 const DivError = styled.div`
   font-weight: 300;
   text-align: center;

@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import logo from "../logo.png";
-import perfil from "../perfil.png";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import logo from '../logo.png';
+import perfil from '../perfil.png';
+import { Link } from 'react-router-dom';
 const DivNavBar = styled.div`
   .navbar {
     display: flex;
@@ -51,9 +51,8 @@ const DivProfile = styled.div`
       background-color: #dee2f8;
       border-radius: 5px;
 
-      
       &::after {
-        content: "";
+        content: '';
         z-index: -1;
         position: absolute;
         height: 1em;
@@ -93,27 +92,38 @@ const DivProfile = styled.div`
 
 function Navbar() {
   const handleSignOut = () => {
-    localStorage.removeItem("login");
-    localStorage.removeItem("email");
+    localStorage.removeItem('login');
+    localStorage.removeItem('email');
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = '/';
     }, 300);
   };
   const handleClick = () => {
-    document.querySelector(".list").classList.toggle("active");
+    document.querySelector('.list').classList.toggle('active');
   };
 
   return (
     <DivNavBar>
       <nav className="navbar navbar-light ">
         <Link className="navbar-brand" to="/home">
-          <img className="logo-ppal" src={logo} height="70" alt="top" loading="lazy" />
+          <img
+            className="logo-ppal"
+            src={logo}
+            height="70"
+            alt="top"
+            loading="lazy"
+          />
         </Link>
         <div className="sesion">
           <DivProfile className="container-perfil">
-            <img className="perfil" onClick={handleClick} src={perfil} alt="logo" />
+            <img
+              className="perfil"
+              onClick={handleClick}
+              src={perfil}
+              alt="logo"
+            />
             <div className="list">
-              <label className="c-email">{localStorage.getItem("email")}</label>
+              <label className="c-email">{localStorage.getItem('email')}</label>
               <label onClick={handleSignOut}>Salir</label>
             </div>
           </DivProfile>

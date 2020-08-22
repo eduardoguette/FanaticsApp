@@ -1,11 +1,11 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
-import Paginacion from "./Paginacion";
-import ListDeUsuarios from "./ListDeUsuarios";
-import Navbar from "./Navbar";
-import NoResults from "./NoResults";
-import Spinner from "./Spinner";
+import React, { useState, Fragment, useEffect } from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import Paginacion from './Paginacion';
+import ListDeUsuarios from './ListDeUsuarios';
+import Navbar from './Navbar';
+import NoResults from './NoResults';
+import Spinner from './Spinner';
 
 const DivListUser = styled.div`
   display: flex;
@@ -67,33 +67,38 @@ function Home({ users }) {
     users.then((data) => {
       var LS = localStorage;
       // Consultamos el localStorage ya que aqui se almacena el token cuando iniciamos sesion
-      if (localStorage.getItem("login")) {
+      if (localStorage.getItem('login')) {
         setTimeout(() => {
           if (localStorage.length > 1) {
             // Comprobamos si existe el token en el localstorage
-            let arrayLocalStorage = [];
-            let newObject = data;
+            const arrayLocalStorage = [];
+            const newObject = data;
             for (var i in LS) {
-              if (typeof LS[i] == "function") continue;
-              if (typeof LS[i] == "number") continue;
-              if (LS[i].includes("avatar")) arrayLocalStorage.push(JSON.parse(LS[i]));
+              if (typeof LS[i] === 'function') continue;
+              if (typeof LS[i] === 'number') continue;
+              if (LS[i].includes('avatar'))
+                arrayLocalStorage.push(JSON.parse(LS[i]));
             }
             if (arrayLocalStorage.length > 0) {
               let editUsers = [...arrayLocalStorage, newObject].flat();
               // Filtrar duplicados
-              let hash = {};
-              editUsers = editUsers.filter((o) => (hash[o.id] ? false : (hash[o.id] = true)));
-              //Ordenamos la lista de usuarios por id
+              const hash = {};
+              editUsers = editUsers.filter((o) =>
+                hash[o.id] ? false : (hash[o.id] = true)
+              );
+              // Ordenamos la lista de usuarios por id
               var ordenArray = editUsers.sort((a, b) => a.id - b.id);
               if (data[0] || data[5]) {
                 var max = data[5].id;
                 var min = data[0].id;
-                var usuarios = ordenArray.filter(({ id }) => id <= max && id >= min);
+                var usuarios = ordenArray.filter(
+                  ({ id }) => id <= max && id >= min
+                );
                 setData(usuarios);
               } else {
                 setData([]);
               }
-            }else{
+            } else {
               setData(data);
             }
           } else {
@@ -102,16 +107,32 @@ function Home({ users }) {
           setLoading(false);
         }, 400);
       } else {
-        window.location.href = "/";
+        window.location.href = '/';
       }
     });
   }, [users]);
   return (
     <Fragment>
-      {localStorage.getItem("login") ? (
+      {localStorage.getItem('login') ? (
         <Fragment>
           <Navbar />
-          <DivListUser>{loading ? <Spinner /> : data ? data.map(({ first_name, id, avatar, last_name }) => <ListDeUsuarios first_name={first_name} last_name={last_name} key={id} avatar={avatar} id={id} />) : <NoResults />}</DivListUser>
+          <DivListUser>
+            {loading ? (
+              <Spinner />
+            ) : data ? (
+              data.map(({ first_name, id, avatar, last_name }) => (
+                <ListDeUsuarios
+                  first_name={first_name}
+                  last_name={last_name}
+                  key={id}
+                  avatar={avatar}
+                  id={id}
+                />
+              ))
+            ) : (
+              <NoResults />
+            )}
+          </DivListUser>
           <Paginacion users={users} loading={loading} />
         </Fragment>
       ) : (

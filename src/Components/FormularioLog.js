@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
-import ErrorAutentication from "./ErrorAutentication";
+import ErrorAutentication from './ErrorAutentication';
 const DivFormulario = styled.div`
   margin-top: 2em;
   display: flex;
@@ -88,28 +88,40 @@ const DivFormulario = styled.div`
   }
 `;
 
-function FormularioLog({errorAutent,hadleLog}) {
+function FormularioLog({ errorAutent, hadleLog }) {
   return (
     <DivFormulario>
-    <div className="login-box">
-      <h2>Login</h2>
-      <form action="#" onSubmit={hadleLog}>
-        <div className="form-group">
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="eve.holt@reqres.in" required />
-          <label>Username</label>
-        </div>
-        <div className="form-group">
-          <input type="password" className="form-control" id="exampleInputPassword1" required />
-          <label>Password</label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-        {errorAutent ? <ErrorAutentication /> : <></>}
-      </form>
-    </div>
-  </DivFormulario>
-  )
+      <div className="login-box">
+        <h2>Login</h2>
+        <form action="#" onSubmit={hadleLog}>
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="eve.holt@reqres.in"
+              required
+            />
+            <label>Username</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              required
+            />
+            <label>Password</label>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+          {errorAutent ? <ErrorAutentication /> : <></>}
+        </form>
+      </div>
+    </DivFormulario>
+  );
 }
 
-export default FormularioLog
+export default FormularioLog;

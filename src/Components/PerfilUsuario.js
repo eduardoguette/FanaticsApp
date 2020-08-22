@@ -1,12 +1,14 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { connect } from "react-redux";
-import Navbar from "./Navbar";
-import ButtonBack from "./ButtonBack";
-import styled from "styled-components";
-import GetUser from "../Services/GetUser";
-import DeleteUser from "../Services/DeleteUser";
-import UpdateProfile from "../Services/UpdateProfile";
-
+import React, { useState, useEffect, Fragment } from 'react';
+import { connect } from 'react-redux';
+import Navbar from './Navbar';
+import ButtonBack from './ButtonBack';
+import styled from 'styled-components';
+import GetUser from '../Services/GetUser';
+import DeleteUser from '../Services/DeleteUser';
+import UpdateProfile from '../Services/UpdateProfile';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 const DivMsg = styled.div`
   p {
     text-align: center;
@@ -35,7 +37,7 @@ const DivUser = styled.div`
     width: 300px;
     margin: auto;
   }
-  div[class="col py-3 check"] {
+  div[class='col py-3 check'] {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -110,8 +112,8 @@ function PerfilUsuario({ select }) {
   const [userDelete, setUserDelete] = useState(false);
   const [userUpdate, setuserUpdate] = useState(false);
 
-  let seleccion = select.id;
-  const pathUrl = window.location.href.split("/").pop();
+  const seleccion = select.id;
+  const pathUrl = window.location.href.split('/').pop();
   useEffect(() => {
     if (localStorage.getItem(parseInt(pathUrl))) {
       setuser(JSON.parse(localStorage.getItem(pathUrl)));
@@ -122,35 +124,36 @@ function PerfilUsuario({ select }) {
     }
   }, [pathUrl, seleccion]);
   const hadleform = () => {
-    document.querySelector(".form").style.display = "block";
-    document.querySelector(".container-btns").style.display = "none";
-    document.querySelector("#myDiv").style.display = "none";
+    document.querySelector('.form').style.display = 'block';
+    document.querySelector('.container-btns').style.display = 'none';
+    document.querySelector('#myDiv').style.display = 'none';
   };
   const handleCancel = () => {
-    document.querySelector(".form").style.display = "none";
-    document.querySelector(".container-btns").style.display = "block";
+    document.querySelector('.form').style.display = 'none';
+    document.querySelector('.container-btns').style.display = 'block';
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const name = document.querySelector(".name").value;
-    const lastName = document.querySelector(".last-name").value;
-    var changesUpdates = document.querySelector("input[type=checkbox]").checked;
-    const email = document.querySelector(".email").value;
-    document.querySelector(".form").style.display = "none";
-    document.querySelector(".spinner-grow").style.display = "block";
+    const name = document.querySelector('.name').value;
+    const lastName = document.querySelector('.last-name').value;
+    var changesUpdates = document.querySelector('input[type=checkbox]').checked;
+    const email = document.querySelector('.email').value;
+    document.querySelector('.form').style.display = 'none';
+    document.querySelector('.spinner-grow').style.display = 'block';
     setTimeout(() => {
-      document.querySelector(".spinner-grow").style.display = "none";
-      document.querySelector(".container-btns").style.display = "block";
-      document.getElementById("myDiv").style.display = "block";
+      document.querySelector('.spinner-grow').style.display = 'none';
+      document.querySelector('.container-btns').style.display = 'block';
+      document.getElementById('myDiv').style.display = 'block';
       setTimeout(() => {
-        if (document.getElementById("myDiv")) document.getElementById("myDiv").style.display = "none";
+        if (document.getElementById('myDiv'))
+          document.getElementById('myDiv').style.display = 'none';
       }, 10000);
     }, 1000);
-    //fetch
+    // fetch
     UpdateProfile(name, lastName, email).then((json) => {
       const first_name = json.first_name;
       const last_name = json.last_name;
-      if (email !== "") {
+      if (email !== '') {
         var newObject = { first_name, last_name, email };
       } else {
         newObject = { first_name, last_name };
@@ -173,8 +176,8 @@ function PerfilUsuario({ select }) {
   };
   const handleDelete = (e) => {
     e.preventDefault();
-    DeleteUser(seleccion).then((data) => console.log("User delete", data));
-    document.querySelector(".info-profile").classList.add("delete");
+    DeleteUser(seleccion).then((data) => console.log('User delete', data));
+    document.querySelector('.info-profile').classList.add('delete');
     setTimeout(() => {
       setUserDelete(true);
     }, 500);
@@ -189,7 +192,7 @@ function PerfilUsuario({ select }) {
           <p>Usuario Eliminado</p>
         </DivMsg>
       ) : (
-        <DivUser>
+        <DivUser data-aos="fade-up" data-aos-duration="1000">
           <div className="container info-profile">
             <h1>
               {user.first_name} {user.last_name}
@@ -202,26 +205,51 @@ function PerfilUsuario({ select }) {
             <button type="button" onClick={hadleform} className="btn btn-info">
               Update Profile
             </button>
-            <button type="button" onClick={handleDelete} className="btn btn-danger">
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="btn btn-danger"
+            >
               Delete user
             </button>
           </div>
-          <div className="container spinner-grow mt-5 text-primary" role="status">
+          <div
+            className="container spinner-grow mt-5 text-primary"
+            role="status"
+          >
             <span className="sr-only">Loading...</span>
           </div>
           <div id="myDiv" className="animate-bottom">
             <h2>Profile Updated! </h2>
           </div>
-          <form action="#" onSubmit={handleSubmit} className="form container-md">
+          <form
+            action="#"
+            onSubmit={handleSubmit}
+            className="form container-md"
+          >
             <div className="form-col container">
               <div className="col py-3">
-                <input type="text" className="form-control name" placeholder="First Name" required />
+                <input
+                  type="text"
+                  className="form-control name"
+                  placeholder="First Name"
+                  required
+                />
               </div>
               <div className="col py-3">
-                <input type="text" className="form-control last-name" placeholder="Last Name" required />
+                <input
+                  type="text"
+                  className="form-control last-name"
+                  placeholder="Last Name"
+                  required
+                />
               </div>
               <div className="col py-3">
-                <input type="text" className="form-control email" placeholder="correo@correo.com" />
+                <input
+                  type="text"
+                  className="form-control email"
+                  placeholder="correo@correo.com"
+                />
               </div>
               <div className="col py-3 check">
                 <input type="checkbox" id="ls" />
@@ -231,7 +259,11 @@ function PerfilUsuario({ select }) {
                   <small>Los cambios se guardaran en LocalStorage</small>
                 </label>
               </div>
-              <button type="button" onClick={handleCancel} className="btn btn-warning">
+              <button
+                type="button"
+                onClick={handleCancel}
+                className="btn btn-warning"
+              >
                 Cancel
               </button>
               <button type="submit" className="btn btn-primary">
@@ -246,7 +278,7 @@ function PerfilUsuario({ select }) {
 }
 
 const mapStateToProps = (state) => ({
-  select: state.select,
+  select: state.selet,
 });
 const mapDispatchToProps = (dispatch) => ({});
 
