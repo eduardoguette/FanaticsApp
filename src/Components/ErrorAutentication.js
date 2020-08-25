@@ -10,7 +10,7 @@ const DivError = styled.div`
 `;
 function ErrorAutentication() {
   return (
-    <DivError>
+    <DivError data-aos="zoom-out-left">
       <p>Usuario no registrado.</p>
     </DivError>
   );

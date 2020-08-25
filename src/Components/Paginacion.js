@@ -63,7 +63,7 @@ function Paginacion({ loading, users, pagina }) {
   };
   return (
     <DivNav users={data.length} count={count}>
-      <div className="title-no-users">
+      <div className="title-no-users" data-aos="fade-right">
         <p>No more users</p>
       </div>
       <nav aria-label="Page navigation">

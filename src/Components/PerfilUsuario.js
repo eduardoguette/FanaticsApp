@@ -30,7 +30,7 @@ const DivUser = styled.div`
   .spinner-grow,
   .done,
   .form,
-  #myDiv {
+  .animate-bottom {
     display: none;
   }
 
@@ -43,6 +43,11 @@ const DivUser = styled.div`
     cursor: pointer;
     border: 3px solid linear-gradient(red, blue);
   }
+
+  .container-btns {
+    display: ${(props) => (props.updateProfile ? 'none' : 'block')};
+  }
+
   .animate-bottom {
     position: relative;
     -webkit-animation-name: animatebottom;
@@ -112,6 +117,7 @@ function PerfilUsuario({ select }) {
     document.querySelector('.info-profile').classList.add('delete');
     setTimeout(() => {
       setUserDelete(true);
+      setUpdateProfile(false);
     }, 500);
   };
   return (
@@ -123,14 +129,19 @@ function PerfilUsuario({ select }) {
           <p>Usuario Eliminado</p>
         </DivMsg>
       ) : (
-        <DivUser>
+        <DivUser updateProfile={updateProfile}>
           <div className="container info-profile">
             <h1>
               {user.first_name} {user.last_name}
             </h1>
             <p>{user.email}</p>
 
-            <img className="avatar" src={user.avatar} alt={user.first_name} />
+            <img
+              className="avatar"
+              data-aos="zoom-in-up"
+              src={user.avatar}
+              alt={user.first_name}
+            />
           </div>
           <div className="container-btns">
             <button
@@ -154,7 +165,7 @@ function PerfilUsuario({ select }) {
           >
             <span className="sr-only">Loading...</span>
           </div>
-          <div id="myDiv" className="animate-bottom">
+          <div className="animate-bottom">
             <h2>Profile Updated! </h2>
           </div>
         </DivUser>
@@ -176,13 +187,6 @@ function PerfilUsuario({ select }) {
 const mapStateToProps = (state) => ({
   select: state.select,
 });
-const mapDispatchToProps = (dispatch) => ({
-  /*   user(id) {
-    dispatch({
-      type: 'USER_SELECT',
-      id,
-    });
-  }, */
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PerfilUsuario);

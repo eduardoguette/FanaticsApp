@@ -8,6 +8,8 @@ const DivFormulario = styled.div`
   flex-direction: column;
   justify-content: center;
   color: white;
+  margin-top: 1em;
+  padding-bottom: 2em;
   .col.py-3 {
     width: 300px;
     margin: auto;
@@ -30,18 +32,22 @@ const DivFormulario = styled.div`
   .containerButtons {
     display: flex;
     justify-content: space-between;
-    width: 280px;
+    width: 270px;
     margin: auto;
   }
 `;
+
+const DivMsgUpdate = styled.div`
+  text-align: center;
+`;
+
 function UpdateContact({ setUpdateProfile, seleccion, user, setuser }) {
   const [datos, setDatos] = useState({
     name: '',
     lastName: '',
     email: '',
   });
-  /*   const [contacto, setContacto] = useState([]);
-  const [userUpdate, setuserUpdate] = useState(false); */
+  const [profileUpdate, setProfileUpdate] = useState(false);
 
   const handleInputChange = (e) => {
     setDatos({
@@ -72,6 +78,8 @@ function UpdateContact({ setUpdateProfile, seleccion, user, setuser }) {
       setuser(returnedTarget);
       if (changesUpdates)
         localStorage.setItem(id, JSON.stringify(returnedTarget));
+      setProfileUpdate(true);
+
       setTimeout(() => {
         setUpdateProfile(false);
       }, 1000);
@@ -79,60 +87,64 @@ function UpdateContact({ setUpdateProfile, seleccion, user, setuser }) {
   };
 
   return (
-    <DivFormulario>
-      <form action="#" onSubmit={handleSubmit} className="form container-md">
-        <div className="form-col container">
-          <div className="col py-3">
-            <input
-              type="text"
-              className="form-control name"
-              placeholder="First Name"
-              required
-              name="name"
-              onChange={handleInputChange}
-            />
+    <DivFormulario data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      {!profileUpdate ? (
+        <form action="#" onSubmit={handleSubmit} className="form container-md">
+          <div className="form-col container">
+            <div className="col py-3">
+              <input
+                type="text"
+                className="form-control name"
+                placeholder="First Name"
+                required
+                name="name"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col py-3">
+              <input
+                type="text"
+                className="form-control last-name"
+                placeholder="Last Name"
+                required
+                name="lastName"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col py-3">
+              <input
+                type="text"
+                className="form-control email"
+                placeholder="correo@correo.com"
+                name="email"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col py-3 check">
+              <input type="checkbox" id="ls" />
+              <label htmlFor="ls">
+                Keep changes
+                <br />
+                <small>The changes will be saved in LocalStorage</small>
+              </label>
+            </div>
+            <div className="containerButtons">
+              <button
+                type="button"
+                onClick={() => setUpdateProfile(false)}
+                className="btn btn-warning"
+              >
+                Cancel
+              </button>
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="col py-3">
-            <input
-              type="text"
-              className="form-control last-name"
-              placeholder="Last Name"
-              required
-              name="lastName"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="col py-3">
-            <input
-              type="text"
-              className="form-control email"
-              placeholder="correo@correo.com"
-              name="email"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="col py-3 check">
-            <input type="checkbox" id="ls" />
-            <label htmlFor="ls">
-              Mantener cambios
-              <br />
-              <small>Los cambios se guardaran en LocalStorage</small>
-            </label>
-          </div>
-          <div className="containerButtons">
-            <button
-              type="button"
-              onClick={() => setUpdateProfile(false)}
-              className="btn btn-warning"
-            >
-              Cancel
-            </button>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      ) : (
+        <DivMsgUpdate data-aos="fade-up">Profile Update</DivMsgUpdate>
+      )}
     </DivFormulario>
   );
 }

@@ -38,10 +38,10 @@ const DivProfile = styled.div`
     padding: 0.2em;
     & ~ .list.active {
       font-weight: 400;
-      display: block;
+      display: grid;
       color: black;
       text-align: center;
-      width: 150px;
+      max-width: 200px;
       height: 60px;
       position: absolute;
       top: 7em;
@@ -50,7 +50,6 @@ const DivProfile = styled.div`
       right: 5.3em;
       background-color: #dee2f8;
       border-radius: 5px;
-
       &::after {
         content: '';
         z-index: -1;
@@ -79,6 +78,7 @@ const DivProfile = styled.div`
         }
         &:last-of-type {
           position: relative;
+          text-align: center;
           bottom: 0.3em;
         }
       }
