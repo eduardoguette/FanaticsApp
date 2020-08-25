@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import Log from '../Services/Log';
 import ErrorAutentication from './ErrorAutentication';
 const DivFormulario = styled.div`
   margin-top: 2em;
@@ -10,7 +10,7 @@ const DivFormulario = styled.div`
   color: white;
   padding: 2em;
   background-color: #160b29;
-  max-height: 360px;
+  height: 340px;
   &:hover {
     box-shadow: 0px 0px 20px #413557a4;
   }
@@ -60,47 +60,53 @@ const DivFormulario = styled.div`
       position: relative;
       top: 0.5em;
     }
-    .face {
-      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-    }
-    @keyframes shake {
-      10%,
-      90% {
-        transform: translate3d(-1px, 0, 0);
-      }
-      20%,
-      80% {
-        transform: translate3d(2px, 0, 0);
-      }
-      30%,
-      50%,
-      70% {
-        transform: translate3d(-4px, 0, 0);
-      }
-      40%,
-      60% {
-        transform: translate3d(4px, 0, 0);
-      }
-    }
   }
 `;
 
-function FormularioLog({ errorAutent, hadleLog }) {
+function FormularioLog() {
+  const [errorAutent, seterrorAutent] = useState(false);
+  const [datos, setDatos] = useState({
+    email: '',
+    password: '',
+  });
+  const handleInputChange = (e) => {
+    setDatos({
+      ...datos,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem('email', datos.email);
+    Log(datos.email, datos.password).then((data) => {
+      if (data.token) {
+        const token = data.token;
+        localStorage.setItem('login', token);
+        setTimeout(() => {
+          window.location.href = '/home';
+        }, 500);
+      } else {
+        seterrorAutent(true);
+        setTimeout(() => {
+          seterrorAutent(false);
+        }, 2000);
+      }
+    });
+  };
+
   return (
     <DivFormulario>
       <div className="login-box">
         <h2>Login</h2>
-        <form action="#" onSubmit={hadleLog}>
+        <form action="#" onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
               type="email"
               className="form-control"
-              id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="eve.holt@reqres.in"
+              name="email"
+              onChange={handleInputChange}
               required
             />
             <label>Username</label>
@@ -109,8 +115,9 @@ function FormularioLog({ errorAutent, hadleLog }) {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
               required
+              name="password"
+              onChange={handleInputChange}
             />
             <label>Password</label>
           </div>

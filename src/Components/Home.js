@@ -76,9 +76,11 @@ function Home({ users }) {
             for (var i in LS) {
               if (typeof LS[i] === 'function') continue;
               if (typeof LS[i] === 'number') continue;
+              console.log(LS[i]);
               if (LS[i].includes('avatar'))
                 arrayLocalStorage.push(JSON.parse(LS[i]));
             }
+
             if (arrayLocalStorage.length > 0) {
               let editUsers = [...arrayLocalStorage, newObject].flat();
               // Filtrar duplicados
