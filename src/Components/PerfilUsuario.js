@@ -103,13 +103,10 @@ function PerfilUsuario({ select }) {
       setuser(JSON.parse(localStorage.getItem(pathUrl)));
     } else if (seleccion === undefined) {
       GetUser(pathUrl).then((data) => setuser(data.data));
-      console.log('aqui1');
     } else {
       GetUser(seleccion).then((data) => setuser(data.data));
-      console.log('aqui2');
     }
-  }, [pathUrl, updateProfile]);
-
+  }, [pathUrl, seleccion]);
   const handleDelete = (e) => {
     DeleteUser(seleccion).then((data) => console.log('User delete', data));
     document.querySelector('.info-profile').classList.add('delete');
@@ -117,7 +114,6 @@ function PerfilUsuario({ select }) {
       setUserDelete(true);
     }, 500);
   };
-
   return (
     <Fragment>
       <Navbar />
