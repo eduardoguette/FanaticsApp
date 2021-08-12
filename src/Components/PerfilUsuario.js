@@ -141,6 +141,8 @@ function PerfilUsuario({ select }) {
               data-aos="zoom-in-up"
               src={user.avatar}
               alt={user.first_name}
+              height="128"
+              width="128"
             />
           </div>
           <div className="container-btns">
