@@ -41,8 +41,7 @@ const DivProfile = styled.div`
       display: grid;
       color: black;
       text-align: center;
-      max-width: 200px;
-      height: 60px;
+      max-width: 200px; 
       position: absolute;
       top: 7em;
       font-size: 0.8em;
@@ -56,7 +55,7 @@ const DivProfile = styled.div`
         position: absolute;
         height: 1em;
         width: 1em;
-        bottom: 3.7em;
+        bottom: 4.3em;
         right: 2em;
         background-color: #dee2f8;
         transform: rotate(45deg);
@@ -66,21 +65,15 @@ const DivProfile = styled.div`
         position: relative;
         z-index: 9;
         cursor: pointer;
+        margin: 0;
+        0.5rem .8rem
         &:hover {
           color: #ff6464;
         }
         &:first-of-type {
           border-bottom: 1px solid #5a5a5a2c;
-          padding-left: 1em;
-          padding-right: 1em;
-          padding-bottom: 0.3em;
           text-align: center;
-        }
-        &:last-of-type {
-          position: relative;
-          text-align: center;
-          bottom: 0.3em;
-        }
+        } 
       }
 
       .c-email {
