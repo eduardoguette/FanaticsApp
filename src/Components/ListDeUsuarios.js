@@ -42,7 +42,7 @@ const DivListUser = styled.div`
       box-shadow: 0 1px 10px #929292;
     }
     img {
-      height: 70px;
+      object-fit: cover;
       border-radius: 100%;
     }
 
@@ -59,7 +59,7 @@ function ListDeUsuarios({ usuario_select, avatar, id, first_name, last_name }) {
     <DivListUser>
       <div className="container-sm list-users">
         <div className="media" id={id}>
-          <img src={avatar} className="mr-3" alt={first_name} />
+          <img src={avatar} className="mr-3" alt={first_name} height="70" width="70" />
           <div className="media-body">
             <strong>Name: </strong>
             <Link to={`/user/${id}`} onClick={() => usuario_select({ id })}>
