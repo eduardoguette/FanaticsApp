@@ -66,7 +66,7 @@ const DivProfile = styled.div`
         z-index: 9;
         cursor: pointer;
         margin: 0;
-        0.5rem .8rem
+        padding: 0.5rem .8rem;
         &:hover {
           color: #ff6464;
         }
