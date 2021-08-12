@@ -38,6 +38,7 @@ const DivUser = styled.div`
     border-radius: 100%;
     border: 3px solid white;
     padding: 0.5em;
+    object-fit: cover;
   }
   img.avatar:hover {
     cursor: pointer;
